@@ -87,7 +87,7 @@
                         </div>
                         <div class="col-lg-8">
                             <form action="" method="POST" class="form-horizontal">
-                              
+                              {{csrf_field()}}
                                 <div class="form-group row">
                                     <div class="col-6">
                                         <input type="text" name="states" id="states" class="form-control" placeholder="Enter State" style="margin-top: 5px;">
@@ -121,3 +121,11 @@
     </div>
 </body>
 </html>
+<script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#states').keyup(function(){
+        alert("Hellow");
+    });
+});
+</script>
