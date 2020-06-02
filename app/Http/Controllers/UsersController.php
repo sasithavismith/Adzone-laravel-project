@@ -20,7 +20,7 @@ class UsersController extends Controller
            $output ='<ul style="display:block !important;" class= "dropdown-menu">';
            if($data->count()>0){
                foreach($data as $row){
-                   $output .= '<li>'.$row->stateName.'</li>';
+                   $output .= '<li class= "searchState" id="search" name="searchState" value='.$row->id.'>'.$row->stateName.'</li>';
                }
                $output.='</ul>';
                echo $output;

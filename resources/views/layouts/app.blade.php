@@ -139,10 +139,17 @@ $(document).ready(function(){
     $('#stateList').html(data);
     }
 });
+
        }
 else{
     $('#stateList').fadeOut();
     $('#stateList').html(data);
-}       });
+}
+       });
+    
+       $(document).on('click', '#search', function(){
+        $('#states').val($(this).text());
+    $('#stateList').fadeOut();
+});
 });
 </script>
