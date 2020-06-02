@@ -91,7 +91,8 @@
                                 <div class="form-group row">
                                     <div class="col-6">
                                         <input type="text" name="states" id="states" class="form-control" placeholder="Enter State" style="margin-top: 5px;">
-                                     
+                                     <div id="stateList">
+                                     </div>
                                          </div>
                                     <div class="col-4">
                                         <select class="form-control dropdown" id="catogories" name="catogories" style="margin-top: 5px;">
@@ -125,7 +126,23 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('#states').keyup(function(){
-        alert("Hellow");
-    });
+       var data;
+       var indianstates= $(this).val();
+       if(indianstates != ''){
+      var _token = $('input[name="_token"]').val();
+      $.ajax({
+    url:"{{route('searchlocation.fetch')}}",
+    method: "POST",
+    data: {indianstates:indianstates, _token: _token},
+    success: function(data){
+    $('#stateList').fadeIn();
+    $('#stateList').html(data);
+    }
+});
+       }
+else{
+    $('#stateList').fadeOut();
+    $('#stateList').html(data);
+}       });
 });
 </script>
